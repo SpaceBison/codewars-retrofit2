@@ -1,7 +1,8 @@
-group 'org.spacebison'
-version '0.1'
-
 apply plugin: 'java'
+apply plugin: 'maven'
+
+group 'com.github.SpaceBison'
+version '0.1'
 
 sourceCompatibility = 1.7
 
