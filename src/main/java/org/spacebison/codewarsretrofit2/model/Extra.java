@@ -8,12 +8,23 @@ public class Extra {
 
     @SerializedName("status")
     @Expose
-    public String mStatus;
+    private String mStatus;
     @SerializedName("beta")
     @Expose
-    public Boolean mBeta;
+    private Boolean mBeta;
     @SerializedName("published")
     @Expose
-    public Boolean mPublished;
+    private Boolean mPublished;
 
+    public String getStatus() {
+        return mStatus;
+    }
+
+    public Boolean getBeta() {
+        return mBeta;
+    }
+
+    public Boolean getPublished() {
+        return mPublished;
+    }
 }

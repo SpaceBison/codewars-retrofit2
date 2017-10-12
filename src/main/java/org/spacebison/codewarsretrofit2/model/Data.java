@@ -8,6 +8,13 @@ public class Data<T> {
 
     @SerializedName("data")
     @Expose
-    public T mData;
+    private T mData;
 
+    public T getData() {
+        return mData;
+    }
+
+    public void setData(T data) {
+        mData = data;
+    }
 }

@@ -8,13 +8,7 @@ import org.spacebison.codewarsretrofit2.model.Data;
 import org.spacebison.codewarsretrofit2.model.Paged;
 import org.spacebison.codewarsretrofit2.model.User;
 
-import java.io.IOException;
-
-import okhttp3.Authenticator;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.Route;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,6 +17,8 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface CodewarsService {
+    String BASE_URL = "https://www.codewars.com/api/v1/";
+
     /**
      * Gets information about a specific user.
      *
@@ -62,7 +58,7 @@ public interface CodewarsService {
         public static CodewarsService create(String apiKey) {
             return new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("https://www.codewars.com/api/")
+                    .baseUrl(BASE_URL)
                     .client(getClient(apiKey))
                     .build()
                     .create(CodewarsService.class);
@@ -74,19 +70,6 @@ public interface CodewarsService {
                     .build();
         }
 
-        private static class AuthorizationAuthenticator implements Authenticator {
-            private final String mAuthorization;
-
-            public AuthorizationAuthenticator(String authorization) {
-                mAuthorization = authorization;
-            }
-
-            @Override
-            public Request authenticate(Route route, Response response) throws IOException {
-                return response.request().newBuilder()
-                        .addHeader("Authorization", mAuthorization)
-                        .build();
-            }
-        }
     }
+
 }

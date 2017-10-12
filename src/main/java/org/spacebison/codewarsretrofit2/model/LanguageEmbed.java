@@ -8,15 +8,30 @@ public class LanguageEmbed {
 
     @SerializedName("package")
     @Expose
-    public String mPackage;
+    private String mPackage;
     @SerializedName("setup")
     @Expose
-    public String mSetup;
+    private String mSetup;
     @SerializedName("answer")
     @Expose
-    public String mAnswer;
+    private String mAnswer;
     @SerializedName("fixture")
     @Expose
-    public String mFixture;
+    private String mFixture;
 
+    public String getPackage() {
+        return mPackage;
+    }
+
+    public String getSetup() {
+        return mSetup;
+    }
+
+    public String getAnswer() {
+        return mAnswer;
+    }
+
+    public String getFixture() {
+        return mFixture;
+    }
 }

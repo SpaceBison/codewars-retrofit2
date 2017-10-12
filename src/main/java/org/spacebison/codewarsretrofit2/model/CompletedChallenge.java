@@ -11,18 +11,37 @@ public class CompletedChallenge {
 
     @SerializedName("id")
     @Expose
-    public String mId;
+    private String mId;
     @SerializedName("name")
     @Expose
-    public String mName;
+    private String mName;
     @SerializedName("slug")
     @Expose
-    public String mSlug;
+    private String mSlug;
     @SerializedName("completedAt")
     @Expose
-    public String mCompletedAt;
+    private String mCompletedAt;
     @SerializedName("completedLanguages")
     @Expose
-    public List<String> mCompletedLanguages = new ArrayList<String>();
+    private List<String> mCompletedLanguages = new ArrayList<String>();
 
+    public String getId() {
+        return mId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public String getSlug() {
+        return mSlug;
+    }
+
+    public String getCompletedAt() {
+        return mCompletedAt;
+    }
+
+    public List<String> getCompletedLanguages() {
+        return mCompletedLanguages;
+    }
 }

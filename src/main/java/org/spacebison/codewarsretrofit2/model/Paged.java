@@ -11,12 +11,23 @@ public class Paged<T> {
 
     @SerializedName("totalPages")
     @Expose
-    public Long mTotalPages;
+    private Long mTotalPages;
     @SerializedName("totalItems")
     @Expose
-    public Long mTotalItems;
+    private Long mTotalItems;
     @SerializedName("data")
     @Expose
-    public List<T> mData = new ArrayList<>();
+    private List<T> mData = new ArrayList<>();
 
+    public Long getTotalPages() {
+        return mTotalPages;
+    }
+
+    public Long getTotalItems() {
+        return mTotalItems;
+    }
+
+    public List<T> getData() {
+        return mData;
+    }
 }

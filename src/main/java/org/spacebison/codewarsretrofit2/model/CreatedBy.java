@@ -8,9 +8,16 @@ public class CreatedBy {
 
     @SerializedName("username")
     @Expose
-    public String username;
+    private String mUsername;
     @SerializedName("url")
     @Expose
-    public String url;
+    private String mUrl;
 
+    public String getUsername() {
+        return mUsername;
+    }
+
+    public String getUrl() {
+        return mUrl;
+    }
 }

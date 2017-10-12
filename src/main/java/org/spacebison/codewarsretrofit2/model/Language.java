@@ -8,36 +8,79 @@ public class Language {
 
     @SerializedName("_id")
     @Expose
-    public String mId;
+    private String mId;
     @SerializedName("answer")
     @Expose
-    public String mAnswer;
+    private String mAnswer;
     @SerializedName("code_challenge_review_id")
     @Expose
-    public String mCodeChallengeReviewId;
+    private String mCodeChallengeReviewId;
     @SerializedName("created_at")
     @Expose
-    public Object mCreatedAt;
+    private Object mCreatedAt;
     @SerializedName("example_fixture")
     @Expose
-    public String mExampleFixture;
+    private String mExampleFixture;
     @SerializedName("fixture")
     @Expose
-    public String mFixture;
+    private String mFixture;
     @SerializedName("name")
     @Expose
-    public String mName;
+    private String mName;
     @SerializedName("package")
     @Expose
-    public String mPackage;
+    private String mPackage;
     @SerializedName("rank_applied_to_author")
     @Expose
-    public Boolean mRankAppliedToAuthor;
+    private Boolean mRankAppliedToAuthor;
     @SerializedName("setup")
     @Expose
-    public String mSetup;
+    private String mSetup;
     @SerializedName("updated_at")
     @Expose
-    public String mUpdatedAt;
+    private String mUpdatedAt;
 
+    public String getId() {
+        return mId;
+    }
+
+    public String getAnswer() {
+        return mAnswer;
+    }
+
+    public String getCodeChallengeReviewId() {
+        return mCodeChallengeReviewId;
+    }
+
+    public Object getCreatedAt() {
+        return mCreatedAt;
+    }
+
+    public String getExampleFixture() {
+        return mExampleFixture;
+    }
+
+    public String getFixture() {
+        return mFixture;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public String getPackage() {
+        return mPackage;
+    }
+
+    public Boolean getRankAppliedToAuthor() {
+        return mRankAppliedToAuthor;
+    }
+
+    public String getSetup() {
+        return mSetup;
+    }
+
+    public String getUpdatedAt() {
+        return mUpdatedAt;
+    }
 }

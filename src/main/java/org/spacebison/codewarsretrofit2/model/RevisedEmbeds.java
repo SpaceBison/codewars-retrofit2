@@ -11,6 +11,9 @@ public class RevisedEmbeds {
 
     @SerializedName("languages")
     @Expose
-    public Map<String, LanguageEmbed> mLanguages = new HashMap<>();
+    private Map<String, LanguageEmbed> mLanguages = new HashMap<>();
 
+    public Map<String, LanguageEmbed> getLanguages() {
+        return mLanguages;
+    }
 }

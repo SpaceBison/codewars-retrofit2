@@ -8,12 +8,23 @@ public class Rank {
 
     @SerializedName("id")
     @Expose
-    public Long mId;
+    private Long mId;
     @SerializedName("name")
     @Expose
-    public String mName;
+    private String mName;
     @SerializedName("color")
     @Expose
-    public String mColor;
+    private String mColor;
 
+    public Long getId() {
+        return mId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public String getColor() {
+        return mColor;
+    }
 }

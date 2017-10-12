@@ -11,51 +11,114 @@ public class Comment {
 
     @SerializedName("_id")
     @Expose
-    public String mId;
+    private String mId;
     @SerializedName("comment_reference_id")
     @Expose
-    public String mCommentReferenceId;
+    private String mCommentReferenceId;
     @SerializedName("created_at")
     @Expose
-    public String mCreatedAt;
+    private String mCreatedAt;
     @SerializedName("edit_count")
     @Expose
-    public Long mEditCount;
+    private Long mEditCount;
     @SerializedName("extra")
     @Expose
-    public Extra mExtra;
+    private Extra mExtra;
     @SerializedName("label")
     @Expose
-    public Object mLabel;
+    private Object mLabel;
     @SerializedName("last_edited_on")
     @Expose
-    public Object mLastEditedOn;
+    private Object mLastEditedOn;
     @SerializedName("markdown")
     @Expose
-    public String mMarkdown;
+    private String mMarkdown;
     @SerializedName("masked")
     @Expose
-    public Object mMasked;
+    private Object mMasked;
     @SerializedName("masked_by_id")
     @Expose
-    public Object mMaskedById;
+    private Object mMaskedById;
     @SerializedName("state")
     @Expose
-    public String mState;
+    private String mState;
     @SerializedName("updated_at")
     @Expose
-    public String mUpdatedAt;
+    private String mUpdatedAt;
     @SerializedName("user_id")
     @Expose
-    public String mUserId;
+    private String mUserId;
     @SerializedName("votes")
     @Expose
-    public List<Vote> mVotes = new ArrayList<Vote>();
+    private List<Vote> mVotes = new ArrayList<Vote>();
     @SerializedName("votes_score")
     @Expose
-    public Long mVotesScore;
+    private Long mVotesScore;
     @SerializedName("comments")
     @Expose
-    public List<Comment> mComments = new ArrayList<>();
+    private List<Comment> mComments = new ArrayList<>();
 
+    public String getId() {
+        return mId;
+    }
+
+    public String getCommentReferenceId() {
+        return mCommentReferenceId;
+    }
+
+    public String getCreatedAt() {
+        return mCreatedAt;
+    }
+
+    public Long getEditCount() {
+        return mEditCount;
+    }
+
+    public Extra getExtra() {
+        return mExtra;
+    }
+
+    public Object getLabel() {
+        return mLabel;
+    }
+
+    public Object getLastEditedOn() {
+        return mLastEditedOn;
+    }
+
+    public String getMarkdown() {
+        return mMarkdown;
+    }
+
+    public Object getMasked() {
+        return mMasked;
+    }
+
+    public Object getMaskedById() {
+        return mMaskedById;
+    }
+
+    public String getState() {
+        return mState;
+    }
+
+    public String getUpdatedAt() {
+        return mUpdatedAt;
+    }
+
+    public String getUserId() {
+        return mUserId;
+    }
+
+    public List<Vote> getVotes() {
+        return mVotes;
+    }
+
+    public Long getVotesScore() {
+        return mVotesScore;
+    }
+
+    public List<Comment> getComments() {
+        return mComments;
+    }
 }

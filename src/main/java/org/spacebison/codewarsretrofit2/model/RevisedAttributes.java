@@ -11,18 +11,37 @@ public class RevisedAttributes {
 
     @SerializedName("name")
     @Expose
-    public String mName;
+    private String mName;
     @SerializedName("description")
     @Expose
-    public String mDescription;
+    private String mDescription;
     @SerializedName("category")
     @Expose
-    public String mCategory;
+    private String mCategory;
     @SerializedName("status")
     @Expose
-    public String mStatus;
+    private String mStatus;
     @SerializedName("tags")
     @Expose
-    public List<Object> mTags = new ArrayList<Object>();
+    private List<Object> mTags = new ArrayList<Object>();
 
+    public String getName() {
+        return mName;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public String getCategory() {
+        return mCategory;
+    }
+
+    public String getStatus() {
+        return mStatus;
+    }
+
+    public List<Object> getTags() {
+        return mTags;
+    }
 }
