@@ -27,8 +27,9 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assume.assumeThat;
 
 public class CodewarsServiceTest {
+    private static final String TEST_EXPERIENCED_USER = "g964";
+    private static final String TEST_KATA_ID = "50654ddff44f800200000004";
     private static final String SECRET_USER_JSON = "/secret/user.json";
-    public static final String TEST_KATA_ID = "multiply";
     private static CodewarsService sService;
     private static TestUser sTestUser;
 
@@ -54,9 +55,39 @@ public class CodewarsServiceTest {
     }
 
     @Test
-    public void getUser() throws Exception {
-        String userName = sTestUser.getName();
+    public void testGetCodeChallenge() throws Exception {
+        testGetCodeChallenge(TEST_KATA_ID);
+    }
 
+    @Test
+    public void testGetUser() throws Exception {
+        testGetUser(TEST_EXPERIENCED_USER);
+        testGetUser(sTestUser.getName());
+    }
+
+    @Test
+    public void testGetUserAuthoredChallenges() throws Exception {
+        testGetUserAuthoredChallenges(TEST_EXPERIENCED_USER);
+        testGetUserAuthoredChallenges(sTestUser.getName());
+    }
+
+    @Test
+    public void testGetUserCompletedChallenges() throws Exception {
+        testGetUserCompletedChallenges(TEST_EXPERIENCED_USER);
+        testGetUserCompletedChallenges(sTestUser.getName());
+    }
+
+    private void testGetCodeChallenge(String testKataId) throws java.io.IOException {
+        Response<CodeChallenge> response = sService.getCodeChallenge(testKataId).execute();
+        assumeThat(response.isSuccessful(), is(true));
+
+        CodeChallenge codeChallenge = response.body();
+        assertThat(codeChallenge, is(notNullValue()));
+
+        assertThat(codeChallenge.getId(), is(TEST_KATA_ID));
+    }
+
+    private void testGetUser(String userName) throws java.io.IOException {
         Response<User> response = sService.getUser(userName).execute();
         assumeThat(response.isSuccessful(), is(true));
 
@@ -65,10 +96,18 @@ public class CodewarsServiceTest {
         assertThat(user.getUsername(), is(userName));
     }
 
-    @Test
-    public void getUserCompletedChallenges() throws Exception {
-        String name = sTestUser.getName();
+    private void testGetUserAuthoredChallenges(String name) throws java.io.IOException {
+        Response<Data<AuthoredChallenge>> response = sService.getUserAuthoredChallenges(name).execute();
+        assumeThat(response.isSuccessful(), is(true));
 
+        Data<AuthoredChallenge> data = response.body();
+        assertThat(data, is(notNullValue()));
+
+        List<AuthoredChallenge> authoredChallenge = data.getData();
+        assertThat(authoredChallenge, is(notNullValue()));
+    }
+
+    private void testGetUserCompletedChallenges(String name) throws java.io.IOException {
         Response<Paged<CompletedChallenge>> response =
                 sService.getUserCompletedChallenges(name, 0).execute();
         assumeThat(response.isSuccessful(), is(true));
@@ -78,31 +117,6 @@ public class CodewarsServiceTest {
 
         List<CompletedChallenge> completedChallenges = body.getData();
         assertThat(completedChallenges, is(notNullValue()));
-    }
-
-    @Test
-    public void getUserAuthoredChallenges() throws Exception {
-        String name = sTestUser.getName();
-
-        Response<Data<AuthoredChallenge>> response = sService.getUserAuthoredChallenges(name).execute();
-        assumeThat(response.isSuccessful(), is(true));
-
-        Data<AuthoredChallenge> data = response.body();
-        assertThat(data, is(notNullValue()));
-
-        AuthoredChallenge authoredChallenge = data.getData();
-        assertThat(authoredChallenge, is(notNullValue()));
-    }
-
-    @Test
-    public void getCodeChallenge() throws Exception {
-        Response<CodeChallenge> response = sService.getCodeChallenge(TEST_KATA_ID).execute();
-        assumeThat(response.isSuccessful(), is(true));
-
-        CodeChallenge codeChallenge = response.body();
-        assertThat(codeChallenge, is(notNullValue()));
-
-        assertThat(codeChallenge.getId(), is(TEST_KATA_ID));
     }
 
 }

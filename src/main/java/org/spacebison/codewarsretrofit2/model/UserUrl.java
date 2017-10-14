@@ -4,7 +4,7 @@ package org.spacebison.codewarsretrofit2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CreatedBy {
+public class UserUrl {
 
     @SerializedName("username")
     @Expose

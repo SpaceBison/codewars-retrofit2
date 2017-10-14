@@ -4,17 +4,15 @@ package org.spacebison.codewarsretrofit2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Data<T> {
 
     @SerializedName("data")
     @Expose
-    private T mData;
+    private List<T> mData;
 
-    public T getData() {
+    public List<T> getData() {
         return mData;
-    }
-
-    public void setData(T data) {
-        mData = data;
     }
 }

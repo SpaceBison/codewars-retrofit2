@@ -62,7 +62,7 @@ public class AuthoredChallenge {
     private String mInput;
     @SerializedName("languages")
     @Expose
-    private List<Language> mLanguages = new ArrayList<Language>();
+    private List<String> mLanguages = new ArrayList<>();
     @SerializedName("last_published_at")
     @Expose
     private String mLastPublishedAt;
@@ -237,7 +237,7 @@ public class AuthoredChallenge {
         return mInput;
     }
 
-    public List<Language> getLanguages() {
+    public List<String> getLanguages() {
         return mLanguages;
     }
 

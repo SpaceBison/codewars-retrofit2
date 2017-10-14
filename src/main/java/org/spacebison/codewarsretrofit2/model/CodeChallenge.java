@@ -37,10 +37,10 @@ public class CodeChallenge {
     private Rank mRank;
     @SerializedName("createdBy")
     @Expose
-    private CreatedBy mCreatedBy;
+    private UserUrl mCreatedBy;
     @SerializedName("approvedBy")
     @Expose
-    private String mApprovedBy;
+    private UserUrl mApprovedBy;
     @SerializedName("description")
     @Expose
     private String mDescription;
@@ -93,11 +93,11 @@ public class CodeChallenge {
         return mRank;
     }
 
-    public CreatedBy getCreatedBy() {
+    public UserUrl getCreatedBy() {
         return mCreatedBy;
     }
 
-    public String getApprovedBy() {
+    public UserUrl getApprovedBy() {
         return mApprovedBy;
     }
 
