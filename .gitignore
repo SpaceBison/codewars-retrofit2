@@ -104,3 +104,5 @@ gradle-app.setting
 
 .idea/modules.xml
 .idea/misc.xml
+.idea/codeStyleSettings.xml
+.idea/preferred-vcs.xml
