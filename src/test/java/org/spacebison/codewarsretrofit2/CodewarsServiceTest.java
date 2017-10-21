@@ -1,7 +1,5 @@
 package org.spacebison.codewarsretrofit2;
 
-import com.google.gson.Gson;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.spacebison.codewarsretrofit2.model.AuthoredChallenge;
@@ -11,8 +9,6 @@ import org.spacebison.codewarsretrofit2.model.Data;
 import org.spacebison.codewarsretrofit2.model.Paged;
 import org.spacebison.codewarsretrofit2.model.User;
 
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -35,9 +31,7 @@ public class CodewarsServiceTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        try (Reader reader = new InputStreamReader(CodewarsServiceTest.class.getResourceAsStream(SECRET_USER_JSON))) {
-            sTestUser = new Gson().fromJson(reader, TestUser.class);
-        }
+        sTestUser = TestUser.loadTestUser(SECRET_USER_JSON);
         sService = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(CodewarsService.BASE_URL)
