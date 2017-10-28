@@ -1,12 +1,17 @@
 package org.spacebison.codewarsretrofit2;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.spacebison.codewarsretrofit2.model.AuthoredChallenge;
 import org.spacebison.codewarsretrofit2.model.CodeChallenge;
 import org.spacebison.codewarsretrofit2.model.CompletedChallenge;
 import org.spacebison.codewarsretrofit2.model.Data;
 import org.spacebison.codewarsretrofit2.model.Paged;
 import org.spacebison.codewarsretrofit2.model.User;
+
+import java.util.Date;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -57,11 +62,17 @@ public interface CodewarsService {
     class Factory {
         public static CodewarsService create(String apiKey) {
             return new Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(getGson()))
                     .baseUrl(BASE_URL)
                     .client(getClient(apiKey))
                     .build()
                     .create(CodewarsService.class);
+        }
+
+        private static Gson getGson() {
+            return new GsonBuilder()
+                    .registerTypeAdapter(Date.class, new ISO8601DateDeserializer())
+                    .create();
         }
 
         private static OkHttpClient getClient(String apiKey) {
@@ -69,7 +80,5 @@ public interface CodewarsService {
                     .authenticator(new AuthorizationAuthenticator(apiKey))
                     .build();
         }
-
     }
-
 }

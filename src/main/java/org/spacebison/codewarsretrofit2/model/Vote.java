@@ -4,6 +4,8 @@ package org.spacebison.codewarsretrofit2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class Vote {
 
     @SerializedName("_id")
@@ -11,10 +13,10 @@ public class Vote {
     private String mId;
     @SerializedName("created_at")
     @Expose
-    private String mCreatedAt;
+    private Date mCreatedAt;
     @SerializedName("updated_at")
     @Expose
-    private String mUpdatedAt;
+    private Date mUpdatedAt;
     @SerializedName("user_id")
     @Expose
     private String mUserId;
@@ -26,11 +28,11 @@ public class Vote {
         return mId;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 
-    public String getUpdatedAt() {
+    public Date getUpdatedAt() {
         return mUpdatedAt;
     }
 

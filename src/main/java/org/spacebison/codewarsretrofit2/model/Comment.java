@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Comment {
@@ -17,7 +18,7 @@ public class Comment {
     private String mCommentReferenceId;
     @SerializedName("created_at")
     @Expose
-    private String mCreatedAt;
+    private Date mCreatedAt;
     @SerializedName("edit_count")
     @Expose
     private Long mEditCount;
@@ -66,7 +67,7 @@ public class Comment {
         return mCommentReferenceId;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 

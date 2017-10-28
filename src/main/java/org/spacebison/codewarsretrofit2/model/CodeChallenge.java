@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CodeChallenge {
@@ -22,10 +23,10 @@ public class CodeChallenge {
     private String mCategory;
     @SerializedName("publishedAt")
     @Expose
-    private String mPublishedAt;
+    private Date mPublishedAt;
     @SerializedName("approvedAt")
     @Expose
-    private String mApprovedAt;
+    private Date mApprovedAt;
     @SerializedName("languages")
     @Expose
     private List<String> mLanguages = new ArrayList<String>();
@@ -73,11 +74,11 @@ public class CodeChallenge {
         return mCategory;
     }
 
-    public String getPublishedAt() {
+    public Date getPublishedAt() {
         return mPublishedAt;
     }
 
-    public String getApprovedAt() {
+    public Date getApprovedAt() {
         return mApprovedAt;
     }
 
@@ -87,6 +88,18 @@ public class CodeChallenge {
 
     public String getUrl() {
         return mUrl;
+    }
+
+    /**
+     * @param language
+     * @return URL to the train page or null if given language is not supported.
+     */
+    public String getTrainUrl(String language) {
+        if (getLanguages().contains(language)) {
+            return getUrl() + "/train/" + language;
+        } else {
+            return null;
+        }
     }
 
     public Rank getRank() {
@@ -120,4 +133,6 @@ public class CodeChallenge {
     public List<String> getTags() {
         return mTags;
     }
+
+
 }

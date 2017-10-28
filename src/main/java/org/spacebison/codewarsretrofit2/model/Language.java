@@ -4,6 +4,8 @@ package org.spacebison.codewarsretrofit2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class Language {
 
     @SerializedName("_id")
@@ -17,7 +19,7 @@ public class Language {
     private String mCodeChallengeReviewId;
     @SerializedName("created_at")
     @Expose
-    private Object mCreatedAt;
+    private Date mCreatedAt;
     @SerializedName("example_fixture")
     @Expose
     private String mExampleFixture;
@@ -52,7 +54,7 @@ public class Language {
         return mCodeChallengeReviewId;
     }
 
-    public Object getCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 

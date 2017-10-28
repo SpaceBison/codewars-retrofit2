@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AuthoredChallenge {
@@ -26,7 +27,7 @@ public class AuthoredChallenge {
     private Long mApprovalsCount;
     @SerializedName("approved_at")
     @Expose
-    private String mApprovedAt;
+    private Date mApprovedAt;
     @SerializedName("approved_by_id")
     @Expose
     private String mApprovedById;
@@ -44,7 +45,7 @@ public class AuthoredChallenge {
     private List<Comment> mComments = new ArrayList<Comment>();
     @SerializedName("created_at")
     @Expose
-    private String mCreatedAt;
+    private Date mCreatedAt;
     @SerializedName("created_by_id")
     @Expose
     private String mCreatedById;
@@ -77,7 +78,7 @@ public class AuthoredChallenge {
     private String mOutput;
     @SerializedName("published_at")
     @Expose
-    private String mPublishedAt;
+    private Date mPublishedAt;
     @SerializedName("published_status")
     @Expose
     private String mPublishedStatus;
@@ -95,7 +96,7 @@ public class AuthoredChallenge {
     private Long mRejectionsCount;
     @SerializedName("retired_at")
     @Expose
-    private Object mRetiredAt;
+    private Date mRetiredAt;
     @SerializedName("retired_by_id")
     @Expose
     private Object mRetiredById;
@@ -189,7 +190,7 @@ public class AuthoredChallenge {
         return mApprovalsCount;
     }
 
-    public String getApprovedAt() {
+    public Date getApprovedAt() {
         return mApprovedAt;
     }
 
@@ -213,7 +214,7 @@ public class AuthoredChallenge {
         return mComments;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 
@@ -257,7 +258,7 @@ public class AuthoredChallenge {
         return mOutput;
     }
 
-    public String getPublishedAt() {
+    public Date getPublishedAt() {
         return mPublishedAt;
     }
 

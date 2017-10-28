@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CompletedChallenge {
@@ -20,7 +21,7 @@ public class CompletedChallenge {
     private String mSlug;
     @SerializedName("completedAt")
     @Expose
-    private String mCompletedAt;
+    private Date mCompletedAt;
     @SerializedName("completedLanguages")
     @Expose
     private List<String> mCompletedLanguages = new ArrayList<String>();
@@ -37,7 +38,7 @@ public class CompletedChallenge {
         return mSlug;
     }
 
-    public String getCompletedAt() {
+    public Date getCompletedAt() {
         return mCompletedAt;
     }
 

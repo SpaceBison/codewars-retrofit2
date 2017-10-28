@@ -4,6 +4,8 @@ package org.spacebison.codewarsretrofit2.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class Revision {
 
     @SerializedName("_id")
@@ -11,10 +13,10 @@ public class Revision {
     private String mId;
     @SerializedName("created_at")
     @Expose
-    private String mCreatedAt;
+    private Date mCreatedAt;
     @SerializedName("message")
     @Expose
-    private Object mMessage;
+    private String mMessage;
     @SerializedName("number")
     @Expose
     private Long mNumber;
@@ -26,7 +28,7 @@ public class Revision {
     private RevisedEmbeds mRevisedEmbeds;
     @SerializedName("tag")
     @Expose
-    private Object mTag;
+    private String mTag;
     @SerializedName("user_id")
     @Expose
     private String mUserId;
@@ -35,11 +37,11 @@ public class Revision {
         return mId;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return mCreatedAt;
     }
 
-    public Object getMessage() {
+    public String getMessage() {
         return mMessage;
     }
 
@@ -55,7 +57,7 @@ public class Revision {
         return mRevisedEmbeds;
     }
 
-    public Object getTag() {
+    public String getTag() {
         return mTag;
     }
 
